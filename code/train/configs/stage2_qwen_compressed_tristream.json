@@ -1,0 +1,67 @@
+{
+    "_comment": "Archived r64 implementation recipe; published default is r32. Not a certified checkpoint-exact paper recipe; see docs/reproduction.md",
+    "_comment2": "加载 Stage 1 的真实压缩域三流权重，继续验证 I-frame/MV/residual 三流在下游指令微调中的收益",
+
+    "model_type": "qwen",
+    "model_name_or_path": "/path/to/local_cache/models/Qwen2.5-VL-7B-Instruct",
+    "stage": 2,
+
+    "motion_encoder_type": "motionssm",
+    "freeze_motion_encoder": false,
+
+    "lora_r": 64,
+    "lora_alpha": 128,
+    "lora_dropout": 0.05,
+    "lora_target_modules": ["q_proj", "v_proj", "k_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+
+    "data_path": "/path/to/local_cache/data/llava_video_178k/stage2_sft.json",
+    "video_root": "/path/to/local_cache/data/llava_video_178k/videos",
+    "keyframe_fps": 1.0,
+    "num_diffs_per_interval": 4,
+    "motion_input_mode": "compressed",
+    "compressed_backend": "coviar",
+    "visual_stream_mode": "iframe",
+    "compressed_gop_size": 12,
+    "use_motion_vectors": true,
+    "use_residuals": true,
+    "accumulate_motion_vectors": true,
+    "accumulate_residuals": true,
+    "motion_vector_clip": 20.0,
+    "compressed_fusion_mode": "gated",
+    "compressed_use_iframe_context": true,
+    "compressed_fused_alignment_weight": 1.0,
+    "compressed_iframe_alignment_weight": 0.25,
+    "compressed_mv_alignment_weight": 0.25,
+    "compressed_residual_alignment_weight": 0.25,
+    "alignment_motion_pool": "linear",
+    "max_keyframes": 32,
+    "max_length": 8192,
+
+    "per_device_batch_size": 1,
+    "gradient_accumulation_steps": 16,
+    "num_epochs": 1,
+    "learning_rate": 2e-5,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.03,
+    "lr_scheduler_type": "cosine",
+    "bf16": true,
+    "gradient_checkpointing": true,
+
+    "deepspeed_stage": 2,
+
+    "output_dir": "/path/to/HIMMEL/checkpoints/qwen_delta_stage2_compressed_tristream",
+    "save_steps": 500,
+    "logging_steps": 10,
+
+    "val_ratio": 0.05,
+    "max_val_samples": 500,
+    "eval_steps": 200,
+    "early_stopping_patience": 3,
+
+    "stage1_checkpoint": "/path/to/HIMMEL/checkpoints/qwen_delta_stage1_compressed_tristream/final/motion_module.pt",
+    "allow_compressed_proxy_fallback": false,
+    "dataloader_num_workers": 0,
+    "dataloader_prefetch_factor": 2,
+    "dataloader_persistent_workers": true,
+    "decord_num_threads": 4
+}

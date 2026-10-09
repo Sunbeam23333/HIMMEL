@@ -1,0 +1,29 @@
+name: CPU and codec smoke tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install smoke test dependencies
+        run: |
+          python -m pip install numpy
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg pkg-config libavformat-dev libavcodec-dev libavutil-dev libswscale-dev
+      - name: Python checks
+        run: python -m unittest discover -s tests -v
+      - name: Build extractor with warnings as errors
+        run: make -C tools/codec CFLAGS='-O2 -std=c11 -Wall -Wextra -Werror'
+      - name: Five codec and failure-path validation
+        run: python tools/codec/validate_codecs.py

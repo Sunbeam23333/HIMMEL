@@ -1,0 +1,15 @@
+# Install a CUDA-compatible torch/torchvision pair for your machine first.
+# This lists API dependencies, not a certified historical training lockfile.
+torch>=2.3
+torchvision>=0.18
+transformers>=4.57,<5
+accelerate>=0.34
+peft>=0.12
+deepspeed>=0.14
+numpy>=1.26
+Pillow>=10
+tqdm>=4.66
+av>=12
+decord>=0.6
+# CUDA-host-dependent optional package: flash-attn (install separately).
+# CoViAR is optional legacy native code; build it separately from upstream.

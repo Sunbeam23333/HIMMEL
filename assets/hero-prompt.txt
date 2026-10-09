@@ -1,0 +1,12 @@
+Use case: ads-marketing / illustration-story.
+Asset type: landscape GitHub README hero banner for an accepted NeurIPS research project, about 2400 x 900, very wide 8:3 composition.
+Primary request: create a beautiful polished academic open-source project cover with HIMMEL (Himmel, the blue-haired hero from Frieren). Use the supplied portrait only as a CHARACTER AND PALETTE REFERENCE; create a NEW wide banner, not another cropped portrait. Preserve recognizable light-blue hair, blue eyes, ivory cape, navy tunic, gentle confident expression. Original fan illustration, no official logos or claimed endorsement.
+Scene/backdrop: silver-white paper, mist-blue cinematic horizon, luminous warm gold accents, subtle long-video filmstrip sweeping across the lower third. A few small sequential sword-movement silhouettes in the filmstrip and fine blue/gold trajectory traces suggest sparse frames and continuous motion, decorative not an asserted architecture diagram.
+Composition: editorial layout inspired by the previous scientific poster: left 58% clean generous negative space for precise large text, right 42% a beautifully drawn half-body Himmel facing slightly toward the text, cape dissolves into airy pale watercolor mist, no hard rectangular portrait edge. Typography hierarchy is exceptional, readable at GitHub width, few elements, restrained stylish scientific visual identity. Character does not overlap text.
+Style: refined anime editorial illustration, delicate linework, luminous fabric, subtle watercolor periphery. Typography has a tasteful large dark-navy serif wordmark and modern small sans-serif scientific subtitle.
+Text (verbatim, and NO other text):
+"HIMMEL"
+"Hierarchical Interleaved Multi-stream Motion Encoding"
+"for Long Video Understanding"
+"NeurIPS 2026"
+The first line is very large and elegant, subtitle two lines beneath it, small venue line above the title. Render exact spellings. No data metrics, no numbers other than 2026, no invented architecture labels. No QR, no badges, no charts, no dense paragraph, no logos, no border, no watermark. Opaque silver-white background.
